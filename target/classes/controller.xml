@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<!-- Controller -->
+	<bean class="login.LoginController">
+		<property name="authService" ref="authService" />
+		<property name="daoBoard" ref="daoBoard" />
+	</bean>
+	<bean class="register.RegisterController"> 
+		<property name="srvMemReg" ref="srvMemReg" />
+	</bean>
+	<bean class="survey.SurveyController" />
+	<bean class="login.ChangeAuthController">
+		<property name="srvChgPwd" ref="srvChgPwd" />
+	</bean>
+	<bean class="member.MemberController">
+		<property name="daoMember" ref="daoMember" />
+	</bean>
+	<bean class="board.ControllerBoard">
+		<property name="daoBoard" ref="daoBoard" />
+	</bean>
+	
+	<!-- interceptors -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/edit/**" />
+			<bean class="login.AuthCheckInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- ControllerAdvice -->
+	<bean class="exception.CommonExceptionHandler" />
+	<!-- view controller -->
+	<!-- <mvc:view-controller path="/main" view-name="index"/> -->
+</beans>
