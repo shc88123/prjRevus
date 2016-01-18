@@ -1,0 +1,306 @@
+@CHARSET "UTF-8";
+
+/*COLOR
+#719BC3
+#96B3D1
+#BCCEE2
+#E0E9F1
+#FFF*/
+
+html, body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: #E0E9F1;
+	display: table;
+	width: 100%;
+}
+#wrapper {
+	display: table-row;
+	width: 100%;
+	height: 100%;
+}
+#header {
+	display: table-row;
+	width: 100%;
+	height: 120px;
+	background-color: #719BC3;
+	color: #FFF;
+	text-align: right;
+	vertical-align: middle;
+}
+#footer {
+	display: table-row;
+	width: 100%;
+	height: 50px;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+}
+/* #wrapper {
+	background: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 85%;
+} */
+/* ----------HEADER SUB---------- */
+#headerSub {
+	width: 100%;
+	height: 120px;
+}
+#headerSubLogo {
+	/* position: relative; */
+	display: table-row;
+	width: 100px;
+	height: 100px;
+	border-radius: 50% 50%;
+	background-color: #000;
+	margin: 10px 0 10px 10px;
+	color: #fff;
+	float: left;
+}
+#logo {
+	width: 100px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 60px;
+	margin: 20px 0 0 0;
+	display: inline-block;
+	text-align: center;
+	color: #fff;
+	font-family: fantasy;
+}
+#headerSubMenu {
+	width: 100%;
+	height: 120px;
+	margin: 0;
+	padding: 20px 0 0 0;
+	list-style: none;
+	background-color: #111;
+	background-image: linear-gradient(#444, #111);
+	/* border-radius: 30px; */
+	box-shadow: 0 2px 1px #9c9c9c;
+}
+#menuUser {
+	/* float: right; */
+	color: #fff;
+	padding-right: 15px;
+}
+#headerSubMenu ul {
+	/* margin-right: 20px; */
+}
+#headerSubMenu ul li {
+	list-style: none;
+	text-decoration: none;
+	height: 25px;
+	padding-left: 50px;
+	/* padding: 0 25px; */
+	/* width: 90px; */
+	margin-bottom: 5px;
+	float: left;
+	color: #fff;
+}
+#headerSubMenu ul a {
+	color: #999;
+	font: bold 14px/25px Arial, Helvetica;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+	list-style: none;
+}
+#headerSubMenu ul li:hover>a {
+	color: #fafafa;
+}
+/* 로그인 */
+#loginDiv {
+	background: white;
+	margin: 0 auto;
+	text-align: center;
+	width: 250px;
+	height: 150px;
+	border: solid 1px gray;
+	border-radius: 15px;
+}
+#main {
+	margin: 30px 30px;
+}
+#divMbmJoin table tr td {
+	width: 100%;
+}
+#divModiFrm {
+	margin: 30px 300px;
+}
+
+
+/* subMenu */
+#menu {
+	width: 20%;
+	background-color: #96B3D1;
+	text-align: center;
+	float: left;
+}
+#content {
+	width: 80%;
+	background-color: #BCCEE2;
+	float: left;
+}
+#subMenu {
+	display: block;
+	width: 95%;
+	margin-top: 5px;
+	margin-left: 4px;
+	text-align: center;
+}
+.subMenuItem {
+	width: 100%; height:30px;
+	color: #FAFAFA;
+	background-color: #646464;
+	line-height: 30px;
+	display: block;
+	margin-bottom: 1px;
+}
+.subMenuItem:first-child {
+	border-radius: 5px 5px 0 0 ;
+}
+.subMenuItem:last-child {
+	border-radius: 0 0 5px 5px ;
+}
+.subMenuItem:hover {
+	cursor: pointer;
+	color: #fff;
+	font-weight: bold;
+}
+
+/* 개별 */
+#selCust {
+	width: 240px;
+	height: 20px;
+}
+#selCate {
+	width: 140px;
+	height: 20px;
+}
+#selProd {
+	width: 220px;
+	height: 20px;
+}
+#custName {
+	width: 120px;
+}
+#btnCust {
+	width: 70px;
+	height: 20px;
+	font-size: 14px;
+}
+#total {
+	border: 1px solid #FF4719;
+}
+/* 공통 */
+.txtSty {
+	width: 80px;
+	height: 17px;
+	font-size: 14px;
+	text-align: right;
+}
+#frm {
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 95%;
+	text-align: left;
+}
+#titleBox {
+	padding-top: 6px;
+	margin-left: 40px;
+	height: 30px;
+	background-color: #6699FF;
+	font-family: '맑은 고딕'
+}
+table {
+	background-color: #E5EEF6;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 10px;
+}
+table, th, td {
+	border: 1px solid #fff;
+}
+th, td {
+	height: 35px;
+	text-align: center;
+}
+td > a {
+	display: inline-block;
+	margin-top: 7px;
+	text-decoration: none;
+	color: #45474A;
+	font-weight: bold;
+}
+/* Reply */
+.postedItems {
+	width: 80%;
+	height: 15%;
+	margin: 0 auto;
+}
+#addDiv {
+	width: 75%;
+	margin: 0 auto;
+}
+.postedItem1 {
+	width: 75%;
+	margin: 0 auto;
+}
+.postedItem2 {
+	width: 75%;
+	margin: 0 auto;
+}
+.postedItem2 > input {
+	width: 60%;
+}
+.postedItem3 {
+	width: 75%;
+	margin: 0 auto;
+}
+.postedItem3 input {
+	width: 60%;
+}
+.postedItem4 {
+	width: 75%;
+	margin: 0 auto;
+	text-align: center;
+}
+/* Button */
+.btnRound {
+	margin: 0px;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	text-align: center;
+	text-decoration: none;
+	background-color: #99CCFF;
+	border: 1px solid #6B8FB2;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #2E3D4C;
+	line-height: 20px;
+}
+.btnRound:hover { color: #fff; background-color: blue; }
+.btnRound:active { color: #fff;	background-color: red; }
+.btnGeneral {
+	margin: 0px;
+	display: inline-block;
+	height: 30px;
+	text-align: center;
+	text-decoration: none;
+	background-color: #99CCFF;
+	border: 1px solid #6B8FB2;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #2E3D4C;
+	line-height: 20px;
+}
+.btnGeneral:hover { color: #fff; background-color: blue; }
+.btnGeneral:active { color: #fff;	background-color: red; }
