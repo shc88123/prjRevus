@@ -3,7 +3,7 @@ package board;
 import java.util.Date;
 
 public class BeanBoard {
-	// 빅토르B에서 입력합니다
+	// 빅토르A에서 입력합니다
 	private int bnum;
 	private String name;
 	private String pass;
