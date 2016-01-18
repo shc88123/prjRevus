@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- Handler (e.g. @Controller) -->
+	<mvc:annotation-driven />
+	<!-- servlet mapping을 /로 지정했을 때 -->
+	<mvc:default-servlet-handler />
+	<!-- view-resolvers -->
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/" />
+	</mvc:view-resolvers>
+	<!-- DataSource / TransactionManager -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost/db7?characterEncoding=utf8" />
+		<property name="user" value="db7" />
+		<property name="password" value="1234" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- Transaction -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- MessageSource -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message.label</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	<!-- MultipartResolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000" />
+		<property name="maxInMemorySize" value="100000000" />
+	</bean>
+
+	<!-- member -->
+	<bean id="daoMember" class="member.DaoMember">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="daoBoard" class="board.DaoBoard">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<bean id="srvMemReg" class="login.ServiceMemberRegister">
+		<constructor-arg ref="daoMember" />
+	</bean>
+	<bean id="srvChgPwd" class="login.ServiceChangePassword">
+		<constructor-arg ref="daoMember" />
+	</bean>
+	<bean id="authService" class="login.AuthService">
+		<property name="daoMember" ref="daoMember" />
+	</bean>
+</beans>
